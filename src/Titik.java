@@ -1,46 +1,54 @@
-// File: Titik.java
-public class Titik {
-    // ATRIBUT
-    double absis;
-    double ordinat;
+/* Nama File : Titik.java
+   Deskripsi : Berisi atribut dan method dalam class Titik
+   Pembuat   : Nawaal Hanif Mumtaz Arriye
+   Tanggal   : 25 Februari 2026 */
 
-    // KONSTRUKTOR
-    // Inisialisasi titik (0,0)
-    Titik() {
-        absis = 0;
-        ordinat = 0;
+public class Titik {
+    /* ATRIBUT */
+    private double absis;
+    private double ordinat;
+    private static int counterTitik = 0;
+
+    /* KONSTRUKTOR */
+
+    public Titik() {
+        this(0, 0);
     }
 
-    // METHOD
-    
-    // Mengembalikan nilai absis
-    double getAbsis() {
+    public Titik(double absis, double ordinat) {
+        this.absis = absis;
+        this.ordinat = ordinat;
+        counterTitik++;
+    }
+
+    // Selektor (Getter) [cite: 957]
+    public double getAbsis() {
         return absis;
     }
 
-    // Mengembalikan nilai ordinat
-    double getOrdinat() {
+    public double getOrdinat() {
         return ordinat;
     }
 
-    // Mengeset absis dengan nilai baru
-    void setAbsis(double x) {
-        absis = x;
+    public static int getCounterTitik() {
+        return counterTitik;
     }
 
-    // Mengeset ordinat dengan nilai baru
-    void setOrdinat(double y) {
-        ordinat = y;
+    // Mutator (Setter) [cite: 957]
+    public void setAbsis(double absis) {
+        this.absis = absis;
     }
 
-    // Menggeser nilai absis dan ordinat
-    void geser(double x, double y) {
-        absis = absis + x;
-        ordinat = ordinat + y;
+    public void setOrdinat(double ordinat) {
+        this.ordinat = ordinat;
     }
 
-    // Mencetak koordinat titik
-    void printTitik() {
-        System.out.println("Titik (" + absis + "," + ordinat + ")");
+    public void geser(double x, double y) {
+        absis += x;
+        ordinat += y;
+    }
+
+    public void printTitik() {
+        System.out.println("Titik (" + absis + ", " + ordinat + ")");
     }
 }

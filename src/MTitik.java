@@ -1,15 +1,14 @@
-// File: MTitik.java
 public class MTitik {
     public static void main(String[] args) {
-        Titik T1 = new Titik(); // Membuat objek titik T1 (0,0)
+        Titik T1 = new Titik(); 
+        T1.setAbsis(3);
+        T1.setOrdinat(4);
         
-        T1.setAbsis(3); // Mengubah absis T1 dengan nilai 3
-        T1.setOrdinat(4); // Mengubah ordinat T1 dengan nilai 4
-        
-        T1.printTitik(); // Mencetak koordinat T1 ke layar
-
-        T1.geser(3, 4); // Menggeser T1 sejauh (3,4)
-        
-        T1.printTitik(); // Menampilkan koordinat T1 setelah digeser
+        Titik T2 = T1;
+        System.out.print("T2 sebelum T1 diubah: "); T2.printTitik();
+        T1.setAbsis(10);
+        System.out.print("T2 setelah T1 diubah: "); T2.printTitik(); 
+        Titik T3 = new Titik(5, 6);
+        System.out.println("Jumlah Objek Titik = " + Titik.getCounterTitik());
     }
 }
