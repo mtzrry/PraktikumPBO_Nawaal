@@ -9,26 +9,46 @@ public class Garis {
         counterGaris++;
     }
 
-    public Garis(Titik titikAwal, Titik titikAkhir) {
-        this.titikAwal = titikAwal;
-        this.titikAkhir = titikAkhir;
+    public Garis(Titik awal, Titik akhir) {
+        this.titikAwal = awal;
+        this.titikAkhir = akhir;
         counterGaris++;
     }
 
-    public Titik getTitikAwal() { return titikAwal; }
-    public Titik getTitikAkhir() { return titikAkhir; }
-    public static int getCounterGaris() { return counterGaris; }
-
     public double getPanjang() {
-        double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
-        double dy = titikAkhir.getOrdinat() - titikAwal.getOrdinat();
-        return Math.sqrt(dx * dx + dy * dy);
+        return titikAwal.getJarak(titikAkhir);
     }
 
     public double getGradien() {
-        double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
         double dy = titikAkhir.getOrdinat() - titikAwal.getOrdinat();
+        double dx = titikAkhir.getAbsis() - titikAwal.getAbsis();
         return dy / dx;
+    }
+
+    public static int getCounterGaris() {
+        return counterGaris;
+    }
+
+    public Titik getTitikAwal() {
+        return titikAwal;
+    }
+
+    public Titik getTitikAkhir() {
+        return titikAkhir;
+    }
+
+    public Titik getTitikTengah() {
+        double tengahX = (titikAwal.getAbsis() + titikAkhir.getAbsis()) / 2;
+        double tengahY = (titikAwal.getOrdinat() + titikAkhir.getOrdinat()) / 2;
+        return new Titik(tengahX, tengahY);
+    }
+
+    public boolean isSejajar(Garis G) {
+        return this.getGradien() == G.getGradien();
+    }
+    
+    public boolean isTegakLurus(Garis G) {
+        return (this.getGradien() * G.getGradien()) == -1;
     }
 
     public void printPersamaanGaris() {

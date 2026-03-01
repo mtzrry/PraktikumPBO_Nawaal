@@ -21,7 +21,6 @@ public class Titik {
         counterTitik++;
     }
 
-    // Selektor (Getter) [cite: 957]
     public double getAbsis() {
         return absis;
     }
@@ -34,7 +33,6 @@ public class Titik {
         return counterTitik;
     }
 
-    // Mutator (Setter) [cite: 957]
     public void setAbsis(double absis) {
         this.absis = absis;
     }
@@ -46,6 +44,42 @@ public class Titik {
     public void geser(double x, double y) {
         absis += x;
         ordinat += y;
+    }
+
+    public int getKuadran() {
+        if (absis > 0 && ordinat > 0) return 1;
+        if (absis < 0 && ordinat > 0) return 2;
+        if (absis < 0 && ordinat < 0) return 3;
+        if (absis > 0 && ordinat < 0) return 4;
+        return 0;
+    }
+
+    
+    public double getJarak(Titik T) {
+        double dx = T.getAbsis() - this.absis;
+        double dy = T.getOrdinat() - this.ordinat;
+        
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public double getJarakPusat() {
+        return Math.sqrt(Math.pow(absis, 2) + Math.pow(ordinat, 2));
+    }
+
+    public void refleksiX() {
+        this.ordinat = -this.ordinat;
+    }
+
+    public void refleksiY() {
+        this.absis = -this.absis;
+    }
+
+    public Titik getRefleksiX() {
+        return new Titik(this.absis, -this.ordinat);
+    }
+
+    public Titik getRefleksiY() {
+        return new Titik(-this.absis, this.ordinat);
     }
 
     public void printTitik() {

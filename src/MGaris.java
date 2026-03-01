@@ -1,4 +1,4 @@
-/* Nama File : MGaris.java
+/* Nama File : Mgaris.java
    Deskripsi : Main class untuk pengujian class Garis
    Pembuat   : Nawaal Hanif Mumtaz Arriye
    Tanggal   : 25 Februari 2026 */
